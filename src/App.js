@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+//import logo from './logo.svg'; //used by the default react sample webpage
+import {useState} from 'react';
 import './App.css';
 
 let madlib = "Hello, ";
@@ -7,10 +8,23 @@ let madlib = "Hello, ";
 
 function App() {
 
+	//simulate the delay from fetaching/submitting to an API
+	const [submitting, setSubmitting] = useState(false);
+
 	//prevent the default reload functionality of submit button
 	const handleSubmit = event => {
 		event.preventDefault();
+
+		setSubmitting(true);
+		//simulate 3 seconds delay from fetching from API
+		setTimeout(() => {
+			setSubmitting(false);
+		}, 3000);
+
+		/*
+		//test this function to see if submit button works
 		alert("You have submitted the Mad Lib!");
+		*/
 	}
 
 	return (
@@ -25,6 +39,9 @@ function App() {
 				</fieldset>
 				<button type="submit">Create Mad Lib!</button>
 			</form>
+
+			{/*conditionally display message when submitting*/}
+			<p>{submitting && <div> Submitting Mad Lib...</div>}</p>
 			</div>
 	);
 	/*
