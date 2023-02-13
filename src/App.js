@@ -11,6 +11,27 @@ const formReducer = (state, event) => {
 	}
 }
 
+const formToTemplateVar = {
+	firstname: 'NAME',
+	noun: 'NOUN',
+	verb1: 'VERB1',
+	verb2: 'VERB2',
+	verb3: 'VERB3',
+	adjective: 'ADJECTIVE',
+	food: 'FOOD',
+}
+
+function replaceMadLibsElements(formHash) {
+	let temp;
+	for (const x in formHash) {
+		temp = madlib.replaceAll(formToTemplateVar[x], formHash[x]);
+		formToTemplateVar[x] = formHash[x];
+		madlib = temp;
+	}
+}
+
+
+
 function App() {
 
 	const [formData, setFormData] = useReducer(formReducer, {});
@@ -23,6 +44,7 @@ function App() {
 		event.preventDefault();
 
 		setSubmitting(true);
+		replaceMadLibsElements(formData);
 		//simulate 3 seconds delay from fetching from API
 		setTimeout(() => {
 			setSubmitting(false);
@@ -97,7 +119,7 @@ function App() {
 			</form>
 
 			{/*conditionally display message when submitting*/}
-			<p>{submitting && 
+			<p>{submitting &&
 				<div> Submitting Mad Lib...
 				<p>
 				You submitted:
