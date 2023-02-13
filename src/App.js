@@ -2,6 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+	return (
+			<div className="header">
+			<h1>Mad Libs</h1>
+			<form>
+			</form>
+			</div>
+	);
+	/*
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +28,7 @@ function App() {
       </header>
     </div>
   );
+	*/
 }
 
 export default App;
