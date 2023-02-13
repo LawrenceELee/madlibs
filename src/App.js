@@ -2,8 +2,7 @@
 import {useState, useReducer} from 'react';
 import './App.css';
 
-let madlib = "Hello, ";
-		//"It was ___(FOOD)___ day at school, and ___(NAME)___ was super ___(ADJECTIVE)___ for lunch. But when she went outside to eat, a ___(NOUN)___ stole her ___(FOOD)___! ___(NAME)___ chased the ___(NOUN)___ all over school. She ___(VERB1)___, ___(VERB2)___, and ___(VERB3)___ through the playground. Then she tripped on her ___(NOUN)___ and the ___(NOUN)___ escaped! Luckily, ___(NAME)___’s friends were willing to share their ___(FOOD)___ with her.";
+let madlib = "It was ___(FOOD)___ day at school, and ___(NAME)___ was super ___(ADJECTIVE)___ for lunch. But when she went outside to eat, a ___(NOUN)___ stole her ___(FOOD)___! ___(NAME)___ chased the ___(NOUN)___ all over school. She ___(VERB1)___, ___(VERB2)___, and ___(VERB3)___ through the playground. Then she tripped on her ___(NOUN)___ and the ___(NOUN)___ escaped! Luckily, ___(NAME)___’s friends were willing to share their ___(FOOD)___ with her.";
 
 const formReducer = (state, event) => {
 	return {
@@ -43,42 +42,58 @@ function App() {
 	}
 
 	return (
-			<div className="everything">
-			<h1>Mad Libs</h1>
+			<div className="madlibs">
+      <header className="header">
+				<h1>Mad Libs</h1>
+			</header>
+
+			<strong>
+				{"Fill out this Mad Lib: "}
+			</strong>
+
+			<p>
+				{madlib}
+			</p>
 
 			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<label>
-						<p>First Name:</p>
-						<input name="firstname" onChange={handleChange}/>
+						<h3>Names:</h3>
+						<p>First name: <input name="firstname" onChange={handleChange}/></p>
 					</label>
 				</fieldset>
+
+				<fieldset>
+					<label>
+						<h3>Nouns:</h3>
+						<p>Noun: <input name="noun" onChange={handleChange}/></p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<h3>Verbs:</h3>
+						<p>Verb 1: <input name="verb1" onChange={handleChange}/></p>
+						<p>Verb 2: <input name="verb2" onChange={handleChange}/></p>
+						<p>Verb 3: <input name="verb3" onChange={handleChange}/></p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<h3>Adjectives:</h3>
+						<p>Adjective: <input name="adjective" onChange={handleChange}/></p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<h3>Foods:</h3>
+						<p>Food: <input name="food" onChange={handleChange}/></p>
+					</label>
+				</fieldset>
+
 				<button type="submit">Create Mad Lib!</button>
-
-				<fieldset>
-					<label>
-						<p>Nouns</p>
-					</label>
-				</fieldset>
-
-				<fieldset>
-					<label>
-						<p>Verbs</p>
-					</label>
-				</fieldset>
-
-				<fieldset>
-					<label>
-						<p>Adjectives</p>
-					</label>
-				</fieldset>
-
-				<fieldset>
-					<label>
-						<p>Foods</p>
-					</label>
-				</fieldset>
-
 			</form>
 
 			{/*conditionally display message when submitting*/}
