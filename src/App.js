@@ -45,6 +45,7 @@ function App() {
 	return (
 			<div className="everything">
 			<h1>Mad Libs</h1>
+
 			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<label>
@@ -53,6 +54,31 @@ function App() {
 					</label>
 				</fieldset>
 				<button type="submit">Create Mad Lib!</button>
+
+				<fieldset>
+					<label>
+						<p>Nouns</p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<p>Verbs</p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<p>Adjectives</p>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<label>
+						<p>Foods</p>
+					</label>
+				</fieldset>
+
 			</form>
 
 			{/*conditionally display message when submitting*/}
