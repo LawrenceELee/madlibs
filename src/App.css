@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.everything {
+	padding: 5px 20px;
+}
+
+.everything fieldset {
+	margin: 20px 0;
+}

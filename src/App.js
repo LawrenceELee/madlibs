@@ -1,11 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 
+let madlib = "Hello, ";
+		//"It was ___(FOOD)___ day at school, and ___(NAME)___ was super ___(ADJECTIVE)___ for lunch. But when she went outside to eat, a ___(NOUN)___ stole her ___(FOOD)___! ___(NAME)___ chased the ___(NOUN)___ all over school. She ___(VERB1)___, ___(VERB2)___, and ___(VERB3)___ through the playground. Then she tripped on her ___(NOUN)___ and the ___(NOUN)___ escaped! Luckily, ___(NAME)___’s friends were willing to share their ___(FOOD)___ with her.";
+
+
 function App() {
+
+	//prevent the default reload functionality of submit button
+	const handleSubmit = event => {
+		event.preventDefault();
+		alert("You have submitted the Mad Lib!");
+	}
+
 	return (
-			<div className="header">
+			<div className="everything">
 			<h1>Mad Libs</h1>
-			<form>
+			<form onSubmit={handleSubmit}>
+				<fieldset>
+					<label>
+						<p>First Name:</p>
+						<input name="firstname" />
+					</label>
+				</fieldset>
+				<button type="submit">Create Mad Lib!</button>
 			</form>
 			</div>
 	);
